@@ -4,13 +4,14 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"github.com/brainly/terraform-provider-redshift/redshift"
+	"redshifttf/redshift"
 )
 
 //go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
 
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
+		ProviderAddr: "jt.dev/tf/redshifttf",
 		ProviderFunc: func() *schema.Provider {
 			return redshift.Provider()
 		},
